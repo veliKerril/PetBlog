@@ -17,7 +17,9 @@ def all_posts(request):
 # страница непосредственно поста
 def cur_post(request, post_id):
     post = Post.objects.get(pk=post_id)
-    return render(request, 'posts/cur_post.html', {"post": post})
+    author = post.author.first_name + ' ' + post.author.last_name
+    category = post.category.name
+    return render(request, 'posts/cur_post.html', {"post": post, 'author': author, 'category': category})
 
 
 # страница по категориям всех постов
