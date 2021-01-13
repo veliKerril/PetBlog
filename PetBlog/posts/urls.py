@@ -8,7 +8,7 @@ urlpatterns = [
     # страница со всеми постами по дате добавления
     path('all_posts/', views.all_posts, name='all_posts'),
     # страница непосредственно поста
-    path('cur_posts/', views.posts, name='posts'),
+    path('cur_post/<int:post_id>/', views.cur_post, name='cur_post'),
     # страница для создание нового поста
     path('create/', views.create, name='create'),
     # страничка с регистрацией
@@ -18,7 +18,15 @@ urlpatterns = [
     path('categories/', views.categories, name='categories'),
     # страница по автором всех постов
     path('authors_posts', views.authors_posts, name='authors_posts'),
-    # страница с автором с его данными
+    # страница с авторами
     path('user', views.user, name='user'),
+
+
+    # Функция со всеми постами этой категории
+    path('posts_by_categories/', views.posts_by_categories, name='posts_by_categories'),
+    # Функция со всеми постапи этого автора
+    path('posts_by_authors/', views.posts_by_authors, name='posts_by_authors'),
+    # страница с автором и информации о нем
+    path('about_user/', views.about_user, name='about_user'),
 ]
 

@@ -4,7 +4,11 @@
 	</head>
 	
 	<body>
-	<p>Здесь будут все посты, разбитые по авторам. </p>
+	<h1>Авторы. </h1>
+	
+	{% for author in authors %}
+		<p><a href="">{{ author.first_name }}</a></p>
+	{% endfor %}
 	
 	<li><a href="{% url 'main' %}">Вернуться на главную страницу. </a></li>
 	</body>

@@ -4,8 +4,12 @@
 	</head>
 	
 	<body>
-	<p>А здесь будет список всех постов</p>
+	<h1>Все посты на сайте</h1>
 	
-	<li><a href="{% url 'main' %}">Вернуться на главную страницу. </a></li>
+	{% for post in posts %}
+		<li><a href="{% url 'cur_post' post.id %}">{{ post.heading }}</a></li>
+	{% endfor %}
+	
+	<a href="{% url 'main' %}">Вернуться на главную страницу. </a>
 	</body>
 </html>
