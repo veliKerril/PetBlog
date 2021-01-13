@@ -7,28 +7,28 @@ def main(request):
 
 
 def posts(request):
-    return HttpResponse("Здесь будет непосредственно пост")
+    return render(request, 'posts/posts.html')
 
 
 def all_posts(request):
-    return HttpResponse("Здесь будет список всех постов по времени добавления")
+    return render(request, 'posts/all_posts.html')
 
 
 def create(request):
-    return HttpResponse("А это страничка для добавления поста")
+    return render(request, 'posts/create.html')
 
 
 def registration(request):
-    return HttpResponse("Здесь пользователи смогут регистрироваться")
+    return render(request, 'posts/registration.html')
 
 
 def categories(request):
-    return HttpResponse("Тут будет список всех категорий")
+    return render(request, 'posts/categories.html')
 
 
 def authors_posts(request):
-    return HttpResponse("А тут будет список всех авторов и его постов")
+    return render(request, 'posts/authors_posts.html')
 
 
 def user(request):
-    return HttpResponse("Здесь будет информация о пользователе")
+    return render(request, 'posts/user.html')
