@@ -23,10 +23,10 @@ urlpatterns = [
 
 
     # Функция со всеми постами этой категории
-    path('posts_by_categories/', views.posts_by_categories, name='posts_by_categories'),
+    path('posts_by_categories/<int:category_id>/', views.posts_by_categories, name='posts_by_categories'),
     # Функция со всеми постапи этого автора
-    path('posts_by_authors/', views.posts_by_authors, name='posts_by_authors'),
+    path('posts_by_authors/<int:author_id>/', views.posts_by_authors, name='posts_by_authors'),
     # страница с автором и информации о нем
-    path('about_user/', views.about_user, name='about_user'),
+    path('about_user/<str:slug>/', views.about_user, name='about_user'),
 ]
 

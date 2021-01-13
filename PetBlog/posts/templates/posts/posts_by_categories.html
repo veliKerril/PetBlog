@@ -4,10 +4,10 @@
 	</head>
 	
 	<body>
-	<h1>Информация обо всех пользователях блога. </h1>
+	<h1>Посты категории {{posts.category}} </h1>
 	
-	{% for author in authors %}
-		<p><a href="">{{ author.first_name }}</a></p>
+	{% for post in posts %}
+		<li><a href="{% url 'cur_post' post.id %}">{{ post.heading }}</a></li>
 	{% endfor %}
 	
 	<li><a href="{% url 'main' %}">Вернуться на главную страницу. </a></li>

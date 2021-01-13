@@ -4,6 +4,7 @@ from  django.utils import timezone
 
 class Category(models.Model):
     name = models.CharField(max_length=40)
+    slug = models.CharField(max_length=40)
 
     def __str__(self):
         return self.name
@@ -12,6 +13,7 @@ class Category(models.Model):
 class Author(models.Model):
     first_name = models.CharField(max_length=40)
     last_name = models.CharField(max_length=40)
+    slug = models.CharField(max_length=40)
     about_yourself = models.TextField(null=True, blank=True)
     email = models.EmailField(null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
