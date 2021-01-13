@@ -4,11 +4,11 @@
 	</head>
 	
 	<body>
-	<h1>Информация обо всех пользователях блога. </h1>
+	<h1>Информация о пользователе {{ author.first_name }}</h1>
 	
-	{% for author in authors %}
-		<p><a href="">{{ author.first_name }}</a></p>
-	{% endfor %}
+	<p>{{ author.first_name }} {{ author.last_name }}</p>
+	<p>О себе: {{ author.about_yourself }}</p>
+	<p>Email: {{ author.email }}</p>
 	
 	<li><a href="{% url 'main' %}">Вернуться на главную страницу. </a></li>
 	</body>

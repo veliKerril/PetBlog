@@ -49,17 +49,18 @@ def user(request):
 
 
 # Функция со всеми постами этой категории
-def posts_by_categories(request, category_id):
+def posts_by_categories(request, slug, category_id):
     posts = Post.objects.filter(category_id=category_id)
     return render(request, 'posts/posts_by_categories.html', {"posts": posts})
 
 
 # Функция со всеми постапи этого автора
-def posts_by_authors(request, author_id):
+def posts_by_authors(request, slug, author_id):
     posts = Post.objects.filter(author_id=author_id)
     return render(request, 'posts/posts_by_authors.html', {"posts": posts})
 
 
 # страница с автором и информации о нем
-def about_user(request, slug):
-    return render(request, 'posts/about_user.html')
+def about_user(request, slug, author_id):
+    author = Author.objects.get(pk=author_id)
+    return render(request, 'posts/about_user.html', {'author': author})

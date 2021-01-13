@@ -7,7 +7,7 @@
 	<h1>Авторы. </h1>
 	
 	{% for author in authors %}
-		<p><a href="{% url 'posts_by_authors' author.id %}">{{ author.first_name }}</a></p>
+		<p><a href="{% url 'posts_by_authors' author.slug author.id %}">{{ author.first_name }}</a></p>
 	{% endfor %}
 	
 	<li><a href="{% url 'main' %}">Вернуться на главную страницу. </a></li>
