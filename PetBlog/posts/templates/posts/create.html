@@ -1,6 +1,12 @@
 {% extends "posts/base.html" %}
 {% block content%}
 	
-	<h1>Будущая форма добавления поста</h1>
+	<h1>Форма добавления поста</h1>
+	
+	<form action="{% url 'result_of_create' %}" method "post">
+		{% csrf_token %}
+		{{ form }}
+		<input type="submit" value="Запостить">
+	</form>
 	
 {% endblock %}

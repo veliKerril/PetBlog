@@ -28,5 +28,8 @@ urlpatterns = [
     path('posts_by_authors/<str:slug>/<int:author_id>/', views.posts_by_authors, name='posts_by_authors'),
     # страница с автором и информации о нем
     path('about_user/<str:slug>/<int:author_id>/', views.about_user, name='about_user'),
+
+    # Результат создания поста
+    path('result_of_create/', views.result_of_create, name='result_of_create'),
 ]
 

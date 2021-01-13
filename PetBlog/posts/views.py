@@ -1,6 +1,7 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from .models import Post, Author, Category, Comment
+from .forms import PostForm
 
 
 # главная страница
@@ -36,7 +37,10 @@ def authors_posts(request):
 
 # страница для создание нового поста
 def create(request):
-    return render(request, 'posts/create.html')
+    form = PostForm(request.POST)
+    if form.is_valid():
+        return HttpResponseRedirect('/thanks/')
+    return render(request, 'posts/create.html', {'form': form})
 
 
 # страничка с регистрацией
@@ -68,3 +72,8 @@ def posts_by_authors(request, slug, author_id):
 def about_user(request, slug, author_id):
     author = Author.objects.get(pk=author_id)
     return render(request, 'posts/about_user.html', {'author': author})
+
+
+# Результат создания поста
+def result_of_create(request):
+    return HttpResponse("Наконец все получилось!")
