@@ -1,15 +1,10 @@
-<!DOCTYPE html>
-<html>
-	<head>
-	</head>
+{% extends "posts/base.html" %}
+{% block content%}
 	
-	<body>
-	<h1>Информация обо всех пользователях блога. </h1>
+	<h1>Информация обо всех пользователях блога</h1>
 	
 	{% for author in authors %}
-		<p><a href="{% url 'about_user' author.slug author.id %}">{{ author.first_name }}</a></p>
+		<li><a href="{% url 'about_user' author.slug author.id %}">{{ author.first_name }}</a></li>
 	{% endfor %}
 	
-	<li><a href="{% url 'main' %}">Вернуться на главную страницу. </a></li>
-	</body>
-</html>
+{% endblock %}

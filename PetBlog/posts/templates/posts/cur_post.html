@@ -1,13 +1,8 @@
-<!DOCTYPE html>
-<html>
-	<head>
-	</head>
+{% extends "posts/base.html" %}
+{% block content%}
 	
-	<body>	
 		<h1>    {{ post.heading }} </h1>
 		<p>     {{ post.text }}    </p>
 		<p><em> {{ post.date }}    </em></p>
 	
-	<a href="{% url 'main' %}">Вернуться на главную страницу. </a>
-	</body>
-</html>
+{% endblock %}

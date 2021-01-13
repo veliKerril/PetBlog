@@ -1,19 +1,7 @@
-<!DOCTYPE html>
-<html>
-	<head>
-	</head>
+{% extends "posts/base.html" %}
+{% block content%}
 	
-	<body>
-	<h1>Главная страница, так сказать.</h1>
-	<p><strong>Список функциональных страниц: </strong></p>
-	<ul>
-		<li><a href="{% url 'main' %}">Главная страница. </a></li>
-		<li><a href="{% url 'all_posts' %}">Все посты. </a></li>
-		<li><a href="{% url 'categories' %}">Категории. </a></li>
-		<li><a href="{% url 'authors_posts' %}">Посты по авторам. </a></li>
-		<li><a href="{% url 'create' %}">Страница добавление поста. </a></li>
-		<li><a href="{% url 'registration' %}">Регистрация. </a></li>
-		<li><a href="{% url 'user' %}">Авторы. </a></li>
-	</ul>
-	</body>
-</html>
+	<h1>Главная страница, так сказать</h1>
+	<p>Мой первый сайт, который реализует функционал блога. Пока что можно только читать то, что я написал, что уже неплохо. </p>
+	
+{% endblock %}
