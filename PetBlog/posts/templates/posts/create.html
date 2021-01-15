@@ -3,9 +3,9 @@
 	
 	<h1>Форма добавления поста</h1>
 	
-	<form action="{% url 'result_of_create' %}" method "post">
+	<form action="" method = "post">
 		{% csrf_token %}
-		{{ form }}
+		{{ form.as_p }}
 		<input type="submit" value="Запостить">
 	</form>
 	

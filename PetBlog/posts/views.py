@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from .models import Post, Author, Category, Comment
 from .forms import PostForm
+from django.urls import reverse
 
 
 # главная страница
@@ -37,9 +38,14 @@ def authors_posts(request):
 
 # страница для создание нового поста
 def create(request):
-    form = PostForm(request.POST)
-    if form.is_valid():
-        return HttpResponseRedirect('/thanks/')
+    if request.method == 'POST':
+        form = PostForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return render(request, 'posts/result_of_create.html')
+    else:
+        form = PostForm()
+
     return render(request, 'posts/create.html', {'form': form})
 
 
@@ -76,4 +82,4 @@ def about_user(request, slug, author_id):
 
 # Результат создания поста
 def result_of_create(request):
-    return HttpResponse("Наконец все получилось!")
+    return render(request, 'posts/result_of_create.html')
